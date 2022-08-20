@@ -34,6 +34,7 @@ class View(tk.Tk):
         self._make_main_frame()
         self._make_entry()
         self._make_buttons()
+        self._center_window()
 
 
     def main(self):
@@ -73,3 +74,16 @@ class View(tk.Tk):
             btn.pack(side='left')
 
             buttons_in_row += 1
+
+    def _center_window(self):
+        self.update()
+
+        width = self.winfo_width()
+        height = self.winfo_height()
+
+        x_offset = (self.winfo_screenwidth() - width) // 2
+        y_offset = (self.winfo_screenheight() - width) // 2
+
+        self.geometry(
+            f'{width}x{height}+{x_offset}+{y_offset}'
+        )
