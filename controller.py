@@ -11,7 +11,6 @@ class Controller:
         self.view.main()
 
 
-
 if __name__ == '__main__':
     calculator = Controller()
     calculator.main()
