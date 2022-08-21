@@ -23,18 +23,27 @@ class View(tk.Tk):
 
         super().__init__()
 
-        self.title('Tkinter Calculator')
-
         self.controller = controller
 
         self.value_var = tk.StringVar()
 
-        
+        self.title('Tkinter Calculator')
+
+        self.config(bg='black')
+
+        self.configure_button_styles()
+
 
         self._make_main_frame()
-        self._make_entry()
+        self._make_label()
         self._make_buttons()
         self._center_window()
+
+
+    def configure_button_styles(self):
+        style = ttk.Style()
+
+        style.theme_use('alt')
 
 
     def main(self):
@@ -45,9 +54,9 @@ class View(tk.Tk):
         self.main_frame.pack(padx=self.PAD, pady=self.PAD)
          
 
-    def _make_entry(self):
-        ent = ttk.Entry(self.main_frame, justify='right', textvariable = self.value_var, state = 'disabled')
-        ent.pack(fill='x')
+    def _make_label(self):
+        lbl = tk.Label(self.main_frame, anchor='e', textvariable = self.value_var, bg='black', fg='white', font=('Arial', 30))
+        lbl.pack(fill='x')
 
 
     def _make_buttons(self):

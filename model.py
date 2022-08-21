@@ -15,10 +15,16 @@ class Model:
             self.value = self.value[1:] if self.value[0] == '-' else '-' + self.value
 
         elif caption == '%':
-            pass
+            value = float(self.value) if '.' in self.value else int(self.value)
+            self.value = str(value / 100)
 
         elif caption == '=':
-            self.value = str(self._evaluate())
+            value = self._evaluate()
+
+            if '.0' in str(value):
+                value = int(value)
+             
+            self.value = str(value)
 
         elif caption == '.':
             if not caption in self.value:
@@ -39,4 +45,4 @@ class Model:
 
     
     def _evaluate(self):
-        return eval(self.previous_value+self.operator+self.value)
+        return eval(f'{self.previous_value}{self.operator}{self.value}')
