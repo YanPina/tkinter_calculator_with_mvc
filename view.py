@@ -1,8 +1,5 @@
-from sre_parse import expand_template
 import tkinter as tk
 from tkinter import ttk
-
-
 
 class View(tk.Tk):
 
@@ -19,8 +16,6 @@ class View(tk.Tk):
     ]
 
     def __init__(self, controller):
-
-        # CONSTRUCTOR
 
         super().__init__()
 
@@ -52,9 +47,9 @@ class View(tk.Tk):
         #Style for operators buttons
         style.configure('O.TButton', foreground='white', background='orange')
 
-
         #Style for miscellaneous buttons
         style.configure('M.TButton', background='white')
+
 
     def main(self):
         self.mainloop()
